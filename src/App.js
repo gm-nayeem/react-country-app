@@ -43,7 +43,7 @@ export default function App() {
     let value = searchValue.toLowerCase()
     let searchedCountries = countries.filter((country) => {
       let countryName = country.name.common.toLowerCase()
-      return countryName.startsWith(searchValue)
+      return countryName.startsWith(value)
     })
     setFilteredCountries(searchedCountries)
   }
@@ -52,7 +52,7 @@ export default function App() {
     <div>
       <h1>Country App</h1>
       {<Search onSearch={handleSearch}/>}
-      {isLoading && <h2>Loading...</h2>}
+      {isLoading && <h2 style={{textAlign: "center", marginTop: "5rem"}}>Loading...</h2>}
       {error && <h2>{error.message}</h2>}
       {countries && <Countries countries={filteredCountries} onRemoveCountry={handleRemoveCountry}/>}
     </div>
